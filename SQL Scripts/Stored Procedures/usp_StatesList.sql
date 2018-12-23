@@ -16,5 +16,6 @@ SELECT
 	State_Code AS CODE
 FROM 
 	States
+ORDER BY CODE
 GO
 
