@@ -99,10 +99,11 @@
 
                                                     </td>
                                                     <td>
-                                                        <asp:Button ID="btnSearch"  text="Search" CausesValidation="true" runat="server" OnClick ="btnSearch_Click" OnClientClick="SearchInputValidate()"/>
+                                                        <asp:Button ID="btnSearch"  text="Search" CausesValidation="true" runat="server" OnClick ="btnSearch_Click"/>
+                                                        <asp:Button ID="btnAddPerson"  text="Add Person" CausesValidation="true" runat="server" OnClick="btnAddPerson_Click"/>
                                                     </td>                                                    
                                                     <td>
-
+                                                        
                                                     </td>
                                                 </tr>
                                             </tbody>

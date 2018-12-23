@@ -75,5 +75,10 @@ namespace LTP_Website
                     e.Row.Cells[5].Text = "Female";
             }
         }
+
+        protected void btnAddPerson_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
