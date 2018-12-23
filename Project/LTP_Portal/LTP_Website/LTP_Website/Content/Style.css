@@ -1,0 +1,24 @@
+﻿.labelLeft
+{
+    font-weight: bold;
+    text-align: right;
+    padding: 5px 10px 5px 10px;
+}
+.textboxLeft
+{
+    font-weight: bold;
+    text-align: right;
+    padding: 5px 10px 5px 10px;
+    width:250px;
+}
+.radiobuttonLeft
+{
+   margin-right: 50px;
+}
+.dropdownLeft
+{
+    font-weight: bold;
+    text-align: right;
+    padding: 5px 10px 5px 10px;
+    width:250px;
+}

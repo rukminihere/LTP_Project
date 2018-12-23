@@ -41,7 +41,7 @@ namespace LTP_DAL
             return lstStates;
         }
 
-        public List<DTOPerson> GetPersonDetails(string strFirstName, string strLastName, int nStateId, char cGender, DateTime dtDOB)
+        public List<DTOPerson> GetPersonDetails(string strFirstName, string strLastName, int ?nStateId, char ?cGender, DateTime ?dtDOB)
         {
             DTOPerson dtoPerson = null;
             List<DTOPerson> lstPerson = new List<DTOPerson>();
@@ -50,9 +50,6 @@ namespace LTP_DAL
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("dbo.uspSelectPerson", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                //SqlParameterCollection coll = new SqlParameterCollection();
-                //coll.Add(strFirstName);
-                //SqlParameter param1=new SqlParameter(strFirstName)
                 cmd.Parameters.Add(new SqlParameter("FirstName", strFirstName));
                 cmd.Parameters.Add(new SqlParameter("LastName", strLastName));
                 cmd.Parameters.Add(new SqlParameter("StateId", nStateId));

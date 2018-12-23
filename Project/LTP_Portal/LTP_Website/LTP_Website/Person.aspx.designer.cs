@@ -31,6 +31,15 @@ namespace LTP_Website {
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
         
         /// <summary>
+        /// regvalFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regvalFirstName;
+        
+        /// <summary>
         /// lblLastName control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace LTP_Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        
+        /// <summary>
+        /// regvalLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regvalLastName;
         
         /// <summary>
         /// lblState control.
@@ -103,6 +121,15 @@ namespace LTP_Website {
         protected global::System.Web.UI.WebControls.TextBox txtDOB;
         
         /// <summary>
+        /// cmpvalDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cmpvalDOB;
+        
+        /// <summary>
         /// btnSearch control.
         /// </summary>
         /// <remarks>
@@ -110,15 +137,6 @@ namespace LTP_Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearch;
-        
-        /// <summary>
-        /// lblPerson control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPerson;
         
         /// <summary>
         /// GridViewPerson control.

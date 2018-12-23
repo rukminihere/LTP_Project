@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> Lab Test Portal</title>
+    <link href="Content/Style.css" rel="stylesheet" type="text/css" />
     <asp:PlaceHolder ID="HeadContent" runat="server">
     </asp:PlaceHolder>    
 </head>
@@ -30,27 +31,33 @@
             </Scripts>
         </asp:ScriptManager>
         <div>
-        <table>
+        <table id="tblMain" style="height: 100%; width: 100%;">
             <tbody>
                 <tr>
                     <td>
-                        <table runat="server" id="tblHeader" style="height: 15%; width:100%;" border="1">
+                        <table runat="server" id="tblHeader" style="height: 75px; width:100%;">
                             <tbody>
                                 <tr>
                                     <td>
-                                        <asp:Label id="lblHeader" Text="Lab Test Portal" runat="server" ></asp:Label>
+                                        <br />
+                                        <asp:Label id="lblHeader" Text="Lab Test Portal" runat="server"></asp:Label>
+                                        <br />
+                                        <hr>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>                    
                     </td>
-                </tr>
+                </tr>                
                 <tr>
                     <td>
-                        <table runat="server" id="Table1" style="height: 70%; width:100%;">
+                        <table runat="server" id="tblContent" style=" min-height: 400px; width:100%;">
                             <tbody>
                                 <tr>
                                     <td>
+                                        <div style="align-content:stretch; vertical-align:top;">
+
+                                        </div>
                                         <asp:ContentPlaceHolder ID="MainContent" runat="server" ></asp:ContentPlaceHolder>
                                     </td>
                                 </tr>
@@ -60,11 +67,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <table runat="server" id="Table2" style="height: 15%; width:100%;" border="1" >
+                        <table runat="server" id="tblFooter" style="height: 75px; width:100%;" >
                             <tbody>
                                 <tr>
                                     <td>
+                                        <hr />
+                                        <br />
                                         <asp:Label id="lblFooter" Text="Lab Test Portal Footer" runat="server"></asp:Label>
+                                        <br />
                                     </td>
                                 </tr>
                             </tbody>
