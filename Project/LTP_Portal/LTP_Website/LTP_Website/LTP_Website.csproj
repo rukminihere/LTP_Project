@@ -157,12 +157,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Content\Style.css" />
+    <Content Include="Style\bootstrap.css" />
+    <Content Include="Style\bootstrap.min.css" />
+    <Content Include="Style\Site.css" />
+    <Content Include="Style\Style.css" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="UI\Person.aspx" />
+    <Content Include="ContentPage\Person.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -221,11 +221,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="UI\Person.aspx.cs">
+    <Compile Include="ContentPage\Person.aspx.cs">
       <DependentUpon>Person.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\Person.aspx.designer.cs">
+    <Compile Include="ContentPage\Person.aspx.designer.cs">
       <DependentUpon>Person.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

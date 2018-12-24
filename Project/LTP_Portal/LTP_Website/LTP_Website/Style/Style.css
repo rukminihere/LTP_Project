@@ -4,6 +4,13 @@
     text-align: right;
     padding: 5px 10px 5px 10px;
 }
+.labelHeader
+{
+    font-size:medium;
+    font-weight: bold;
+    text-align: right;
+    padding: 10px 10px 10px 10px;
+}
 .textboxLeft
 {
     font-weight: bold;
@@ -21,4 +28,8 @@
     text-align: right;
     padding: 5px 10px 5px 10px;
     width:250px;
+}
+.gridviewLayout
+{
+    padding: 5px 10px 5px 10px;
 }

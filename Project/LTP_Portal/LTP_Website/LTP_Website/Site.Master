@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> Lab Test Portal</title>
-    <link href="Content/Style.css" rel="stylesheet" type="text/css" />
+    <link href="Style/Style.css" rel="stylesheet" type="text/css" />
     <asp:PlaceHolder ID="HeadContent" runat="server">
     </asp:PlaceHolder>    
 </head>

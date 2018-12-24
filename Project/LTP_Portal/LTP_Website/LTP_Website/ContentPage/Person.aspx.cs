@@ -15,19 +15,19 @@ namespace LTP_Website
         {
             if (!IsPostBack)
             {
-                this.LoadStates();
+                this.LoadStates(ddlState);
             }
 
         }
 
-        public void LoadStates()
+        public void LoadStates(DropDownList ddl)
         {
             List<DTOStates> lstStates = new List<DTOStates>();
             DALMethods dalMethods = new DALMethods();
             lstStates = dalMethods.GetStates();
 
-            ddlState.DataSource = lstStates;
-            ddlState.DataBind();
+            ddl.DataSource= lstStates;
+            ddl.DataBind();
         }
 
 
@@ -55,6 +55,7 @@ namespace LTP_Website
 
             LoadPersonGridView(strFirstName, strLastName, nStateId, cGender, dtDob);
         }
+
         protected void LoadPersonGridView(string strFirstName, string strLastName, int? nStateId, char? Gender, DateTime? dtDOB)
         {
             List<DTOPerson> lstPerson = new List<DTOPerson>();
@@ -62,13 +63,13 @@ namespace LTP_Website
             lstPerson = dalMethods.GetPersonDetails(strFirstName, strLastName, nStateId, Gender, dtDOB);
             GridViewPerson.DataSource = lstPerson;
             GridViewPerson.DataBind();
+            lblSearchResults.Visible = true;
         }
 
         protected void GridViewPerson_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                // Display the company name in italics.
                 if (e.Row.Cells[5].Text == "M")
                     e.Row.Cells[5].Text = "Male";
                 else if (e.Row.Cells[5].Text == "F")
@@ -77,6 +78,35 @@ namespace LTP_Website
         }
 
         protected void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            LoadStates(ddlAddState);
+
+            string title = "Add New Person";
+            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "btnAddPerson_Click('"+title+"');", true);    
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            string strFirstName = Convert.ToString(txtAddFirstName.Text);
+            string strLastName = Convert.ToString(txtAddLastName.Text);
+
+            int nStateId = Convert.ToInt32(ddlAddState.SelectedItem.Value);
+            
+            char cGender = Convert.ToChar(rblAddGender.SelectedItem.Value); 
+            
+            DateTime dtDob = Convert.ToDateTime(DateTime.Parse(txtAddDOB.Text).Date); 
+            
+
+            DALMethods dalMethods = new DALMethods();
+            if(dalMethods.SavePerson(strFirstName, strLastName, nStateId, cGender, dtDob) == -1)
+            {
+                LoadPersonGridView(strFirstName, strLastName, nStateId, cGender, dtDob);
+            }
+
+            this.ResetAddPersonFields();      
+        }
+
+        protected void ResetAddPersonFields()
         {
 
         }

@@ -72,5 +72,21 @@ namespace LTP_DAL
             }
             return (lstPerson);
         }
+
+        public int SavePerson(string strFirstName, string strLastName, int nStateId, char cGender, DateTime dtDOB)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("dbo.uspPersonUpsert", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("FirstName", strFirstName));
+                cmd.Parameters.Add(new SqlParameter("LastName", strLastName));
+                cmd.Parameters.Add(new SqlParameter("StateId", nStateId));
+                cmd.Parameters.Add(new SqlParameter("Gender", cGender));
+                cmd.Parameters.Add(new SqlParameter("DateofBirth", dtDOB));
+                return(cmd.ExecuteNonQuery());
+             }
+        }
     }
 }
