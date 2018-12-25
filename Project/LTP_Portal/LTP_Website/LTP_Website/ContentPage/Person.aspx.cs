@@ -70,10 +70,10 @@ namespace LTP_Website
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                if (e.Row.Cells[5].Text == "M")
-                    e.Row.Cells[5].Text = "Male";
-                else if (e.Row.Cells[5].Text == "F")
-                    e.Row.Cells[5].Text = "Female";
+                if (e.Row.Cells[3].Text == "M")
+                    e.Row.Cells[3].Text = "Male";
+                else if (e.Row.Cells[3].Text == "F")
+                    e.Row.Cells[3].Text = "Female";
             }
         }
 
@@ -82,7 +82,7 @@ namespace LTP_Website
             LoadStates(ddlAddState);
 
             string title = "Add New Person";
-            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "btnAddPerson_Click('"+title+"');", true);    
+            ClientScript.RegisterStartupScript(this.GetType(), "Popup", "btnAddPerson_Click('" + title + "');", true);
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -91,24 +91,61 @@ namespace LTP_Website
             string strLastName = Convert.ToString(txtAddLastName.Text);
 
             int nStateId = Convert.ToInt32(ddlAddState.SelectedItem.Value);
-            
-            char cGender = Convert.ToChar(rblAddGender.SelectedItem.Value); 
-            
-            DateTime dtDob = Convert.ToDateTime(DateTime.Parse(txtAddDOB.Text).Date); 
-            
+
+            char cGender = Convert.ToChar(rblAddGender.SelectedItem.Value);
+
+            DateTime dtDob = Convert.ToDateTime(DateTime.Parse(txtAddDOB.Text).Date);
+
 
             DALMethods dalMethods = new DALMethods();
-            if(dalMethods.SavePerson(strFirstName, strLastName, nStateId, cGender, dtDob) == -1)
+            if (dalMethods.SavePerson(strFirstName, strLastName, nStateId, cGender, dtDob) == -1)
             {
                 LoadPersonGridView(strFirstName, strLastName, nStateId, cGender, dtDob);
             }
 
-            this.ResetAddPersonFields();      
+            this.ResetAddPersonFields();
         }
 
         protected void ResetAddPersonFields()
         {
+            this.txtAddFirstName.Text = string.Empty;
+            this.txtAddLastName.Text = string.Empty;
+            this.ddlAddState.ClearSelection();
+            this.rblAddGender.ClearSelection();
+            this.txtAddDOB.Text = string.Empty;
+           // ClientScript.RegisterStartupScript(this.GetType(), "Popup", "btnSave_Click();", true);
+        }
 
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.txtFirstName.Text = string.Empty;
+            this.txtLastName.Text = string.Empty;
+            this.ddlState.ClearSelection();
+            this.rblGender.ClearSelection();
+            this.txtDOB.Text = string.Empty;
+            this.GridViewPerson.DataSource = null;
+            this.GridViewPerson.DataBind();
+        }
+
+        protected void GridViewPerson_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GridViewRow row = (GridViewRow)(((Control)e.CommandSource).NamingContainer);
+            int index = row.RowIndex;
+
+            int PersonID = Convert.ToInt32(GridViewPerson.DataKeys[index].Values[0].ToString());
+            txtAddFirstName.Text = GridViewPerson.Rows[index].Cells[0].Text;
+            txtAddLastName .Text = GridViewPerson.Rows[index].Cells[1].Text;
+            ddlAddState.SelectedValue= GridViewPerson.DataKeys[index].Values[1].ToString();
+            if((GridViewPerson.Rows[index].Cells[3].Text).Equals("Male"))
+            {
+                rblAddGender.SelectedValue = "M";
+            }
+            else
+            {
+                rblAddGender.SelectedValue = "F";
+            }
+            
+            txtAddDOB.Text= GridViewPerson.Rows[index].Cells[4].Text;
         }
     }
 }

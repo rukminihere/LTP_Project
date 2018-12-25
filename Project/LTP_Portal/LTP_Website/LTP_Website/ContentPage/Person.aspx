@@ -33,7 +33,12 @@
             $("#MyPopup .modal-title").html(title);
             $("#MyPopup .modal-body").html(body);
             $("#MyPopup").modal("show");
-         }
+        }
+
+        //function btnSave_Click() {
+        //    $('#MyPopup').modal('hide');
+        //    return false;
+        //}
 
         </script>
         
@@ -56,7 +61,7 @@
                                                     </td>
                                                     <td>
                                                         <asp:TextBox ID="txtFirstName" runat="server" CssClass="textboxLeft"></asp:TextBox>
-                                                        <asp:RegularExpressionValidator ID="regvalFirstName" runat="server" ControlToValidate="txtFirstName" ValidationExpression="^([a-zA-Z]+\s*)+$" ErrorMessage="Only letters and spaces allowed.Should not begin with space"></asp:RegularExpressionValidator>
+                                                        <asp:RegularExpressionValidator ID="regvalFirstName" runat="server" ControlToValidate="txtFirstName" ValidationExpression="^([a-zA-Z]+\s*)+$" ErrorMessage="Only letters and spaces allowed.Should not begin with space." ValidationGroup="valgrpSearch"></asp:RegularExpressionValidator>
                                                     </td>
                                                     <td>
 
@@ -68,7 +73,7 @@
                                                     </td>
                                                     <td>
                                                         <asp:TextBox ID="txtLastName"  runat="server" CssClass="textboxLeft"></asp:TextBox>
-                                                        <asp:RegularExpressionValidator ID="regvalLastName" runat="server" ControlToValidate="txtLastName" ValidationExpression="^([a-zA-Z]+\s*)+$" ErrorMessage="Only letters and spaces allowed.Should not begin with space"></asp:RegularExpressionValidator>
+                                                        <asp:RegularExpressionValidator ID="regvalLastName" runat="server" ControlToValidate="txtLastName" ValidationExpression="^([a-zA-Z]+\s*)+$" ErrorMessage="Only letters and spaces allowed.Should not begin with space" ValidationGroup="valgrpSearch"></asp:RegularExpressionValidator>
                                                     </td>
                                                     <td>
 
@@ -107,7 +112,7 @@
                                                     </td>
                                                     <td>
                                                         <asp:TextBox ID="txtDOB" runat="server" CssClass="textboxLeft"></asp:TextBox>
-                                                        <asp:CompareValidator ID="cmpvalDOB" runat="server" ControlToValidate="txtDOB" Operator="DataTypeCheck" Type="Date" ErrorMessage="Please enter a valid date"></asp:CompareValidator>
+                                                        <asp:CompareValidator ID="cmpvalDOB" runat="server" ControlToValidate="txtDOB" Operator="DataTypeCheck" Type="Date" ErrorMessage="Please enter a valid date." ValidationGroup="valgrpSearch"></asp:CompareValidator>
                                                     </td>
                                                     <td>
 
@@ -118,8 +123,9 @@
 
                                                     </td>
                                                     <td>
-                                                        <asp:Button ID="btnSearch"  text="Search" CausesValidation="true" runat="server" OnClick ="btnSearch_Click"/>
+                                                        <asp:Button ID="btnSearch"  text="Search" runat="server" CausesValidation="true" OnClick ="btnSearch_Click" ValidationGroup="valgrpSearch"/>
                                                         <asp:Button ID="btnAddPerson"  text="Add Person" CausesValidation="false" runat="server" OnClick="btnAddPerson_Click" UseSubmitBehavior="false"/>
+                                                        <asp:Button ID="btnClear"  text="Clear" CausesValidation="false" runat="server" OnClick="btnClear_Click"/>
                                                     </td>                                                    
                                                     <td>
                                                         
@@ -135,17 +141,19 @@
                                         <asp:Label ID="lblSearchResults" runat="server" Text="Person Search Results" CssClass="labelHeader" Visible="false"></asp:Label>
                                         <br />
                                         <br />
-                                        <asp:GridView ID="GridViewPerson" runat="server" DataKeyNames="PersonId" AutoGenerateColumns="false" OnRowDataBound="GridViewPerson_RowDataBound" ShowHeaderWhenEmpty="true" 
-                                            EmptyDataText="No matching person details found" Width="100%" CssClass="gridviewLayout">
+                                        <asp:GridView ID="GridViewPerson" runat="server" DataKeyNames="PersonId,StateID" AutoGenerateColumns="false" OnRowDataBound="GridViewPerson_RowDataBound" ShowHeaderWhenEmpty="true" 
+                                            EmptyDataText="No matching person details found" Width="100%" CssClass="gridviewLayout" OnRowCommand="GridViewPerson_RowCommand">
                                              <Columns>                   
-                                                 <asp:BoundField DataField="PersonId" HeaderText="Person ID" Visible="false" />
                                                  <asp:BoundField DataField="FirstName" HeaderText="First Name" Visible="true" />
-                                                 <asp:BoundField DataField="LastName" HeaderText="Last Name" Visible="true" />
-                                                 <asp:BoundField DataField="StateId" HeaderText="State Id" Visible="false" />
+                                                 <asp:BoundField DataField="LastName" HeaderText="Last Name" Visible="true" />                                                 
                                                  <asp:BoundField DataField="StateCode" HeaderText="State" Visible="true" />
                                                  <asp:BoundField DataField="Gender" HeaderText="Gender" Visible="true" />
-                                                 <asp:BoundField DataField="DOB" HeaderText="Date of Birth" Visible="true" />                        
-                                                <asp:CommandField ShowEditButton="True" />  
+                                                 <asp:BoundField DataField="DOB" HeaderText="Date of Birth" Visible="true" />                                                    
+                                                 <asp:TemplateField>                
+                                                        <ItemTemplate>
+                                                            <asp:Button ID="btnEdit" runat="server" CommandName="EditRow" Text="Edit" />
+                                                        </ItemTemplate>
+                                                 </asp:TemplateField>
                                             </Columns>  
                                         </asp:GridView>
                                     </td>
@@ -168,23 +176,24 @@
             </div>
             <div class="modal-body">
                 <div class="form-group ">
+                    <asp:HiddenField ID="hdnPersonID" runat="server" />
                     <asp:Label ID="lblAddFirstName" Text="First Name:" runat="server" CssClass="labelLeft"></asp:Label>
                     <asp:TextBox ID="txtAddFirstName" runat="server" CssClass="textboxLeft"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="reqtxtAddFirstName" runat="server" ControlToValidate="txtAddFirstName" ErrorMessage="Please enter a first name."></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="regAddFirstName" runat="server" ControlToValidate="txtAddFirstName" ValidationExpression="^([a-zA-Z]+\s*)+$" ErrorMessage="Only letters and spaces allowed.Should not begin with space"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="reqtxtAddFirstName" runat="server" ControlToValidate="txtAddFirstName" ErrorMessage="Please enter a first name." ValidationGroup="valgrpAddPerson"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="regAddFirstName" runat="server" ControlToValidate="txtAddFirstName" ValidationExpression="^([a-zA-Z]+\s*)+$" ErrorMessage="Only letters and spaces allowed.Should not begin with space." ValidationGroup="valgrpAddPerson"></asp:RegularExpressionValidator>
                      <br />
                     <br />
                     <asp:Label ID="lblAddLastName" Text="Last Name:" runat="server" CssClass="labelLeft"></asp:Label>
                     <asp:TextBox ID="txtAddLastName"  runat="server" CssClass="textboxLeft"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="reqtxtAddLastName" runat="server" ControlToValidate="txtAddLastName" ErrorMessage="Please enter a last name."></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="regAddLastName" runat="server" ControlToValidate="txtAddLastName" ValidationExpression="^([a-zA-Z]+\s*)+$" ErrorMessage="Only letters and spaces allowed.Should not begin with space"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="reqtxtAddLastName" runat="server" ControlToValidate="txtAddLastName" ErrorMessage="Please enter a last name." ValidationGroup="valgrpAddPerson"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="regAddLastName" runat="server" ControlToValidate="txtAddLastName" ValidationExpression="^([a-zA-Z]+\s*)+$" ErrorMessage="Only letters and spaces allowed.Should not begin with space." ValidationGroup="valgrpAddPerson"></asp:RegularExpressionValidator>
                     <br />
                     <br />
                     <asp:Label ID="lblAddState" Text="State:" runat="server" CssClass="labelLeft"></asp:Label>
                     <asp:DropDownList ID="ddlAddState"  runat="server" AppendDataBoundItems="true" DataTextField="StateCode" DataValueField="StateID" CssClass="dropdownLeft">
                         <asp:ListItem  Text="Select State" Value="-1"></asp:ListItem>
                     </asp:DropDownList>
-                    <%--<asp:RequiredFieldValidator ID="reqAddState" runat="server" ControlToValidate="ddlAddState" InitialValue="-1" ErrorMessage="Please select a state."></asp:RequiredFieldValidator>--%>
+                    <asp:RequiredFieldValidator ID="reqAddState" runat="server" ControlToValidate="ddlAddState" InitialValue="-1" ErrorMessage="Please select a state." ValidationGroup="valgrpAddPerson"></asp:RequiredFieldValidator>
                     <br />
                     <br />
                     <asp:Label ID="lblAddGender" Text="Gender:" runat="server" CssClass="labelLeft"></asp:Label>                                                    
@@ -192,17 +201,17 @@
                         <asp:ListItem Text="Female" Value="F" style="margin-right:20px" />
                         <asp:ListItem Text="Male" Value="M" />            
                     </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="reqAddGender" runat="server" ControlToValidate="rblAddGender" ErrorMessage="Please select a Gender."></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="reqAddGender" runat="server" ControlToValidate="rblAddGender" ErrorMessage="Please select a Gender." ValidationGroup="valgrpAddPerson"></asp:RequiredFieldValidator>
                     <br />
                     <br />
                     <asp:Label ID="lblAddDOB" Text="DOB:" runat="server" CssClass="labelLeft"></asp:Label>                                                    
                     <asp:TextBox ID="txtAddDOB" runat="server" CssClass="textboxLeft"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="reqAddDOB" runat="server" ControlToValidate="txtAddDOB" ErrorMessage="Please enter or select a Date of birth."></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="cmpvalAddDOB" runat="server" ControlToValidate="txtAddDOB" Operator="DataTypeCheck" Type="Date" ErrorMessage="Please enter a valid date"></asp:CompareValidator>
+                    <asp:RequiredFieldValidator ID="reqAddDOB" runat="server" ControlToValidate="txtAddDOB" ErrorMessage="Please enter or select a Date of birth." ValidationGroup="valgrpAddPerson"></asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="cmpvalAddDOB" runat="server" ControlToValidate="txtAddDOB" Operator="DataTypeCheck" Type="Date" ErrorMessage="Please enter a valid date." ValidationGroup="valgrpAddPerson"></asp:CompareValidator>
                 </div>
             </div>
             <div class="modal-footer">
-                <asp:Button ID="btnSave"  text="Save" CausesValidation="true" runat="server" OnClick ="btnSave_Click"/>
+                <asp:Button ID="btnSave"  text="Save" CausesValidation="true" runat="server" OnClick ="btnSave_Click" ValidationGroup="valgrpAddPerson"/>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">
                     Close</button>
             </div>

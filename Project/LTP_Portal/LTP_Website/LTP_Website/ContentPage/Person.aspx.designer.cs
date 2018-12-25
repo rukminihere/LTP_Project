@@ -157,6 +157,15 @@ namespace LTP_Website {
         protected global::System.Web.UI.WebControls.Button btnAddPerson;
         
         /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
+        
+        /// <summary>
         /// lblSearchResults control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,15 @@ namespace LTP_Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewPerson;
+        
+        /// <summary>
+        /// hdnPersonID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPersonID;
         
         /// <summary>
         /// lblAddFirstName control.
@@ -263,6 +281,15 @@ namespace LTP_Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAddState;
+        
+        /// <summary>
+        /// reqAddState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqAddState;
         
         /// <summary>
         /// lblAddGender control.

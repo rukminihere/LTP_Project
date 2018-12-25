@@ -2,4 +2,3 @@ C:\Users\Sivakumar\Documents\GitHub\LTP_Project\Project\LTP_Portal\LTP_Website\L
 C:\Users\Sivakumar\Documents\GitHub\LTP_Project\Project\LTP_Portal\LTP_Website\LTP_DAL\bin\Debug\LTP_DAL.pdb
 C:\Users\Sivakumar\Documents\GitHub\LTP_Project\Project\LTP_Portal\LTP_Website\LTP_DAL\obj\Debug\LTP_DAL.dll
 C:\Users\Sivakumar\Documents\GitHub\LTP_Project\Project\LTP_Portal\LTP_Website\LTP_DAL\obj\Debug\LTP_DAL.pdb
-C:\Users\Sivakumar\Documents\GitHub\LTP_Project\Project\LTP_Portal\LTP_Website\LTP_DAL\obj\Debug\LTP_DAL.csprojResolveAssemblyReference.cache
