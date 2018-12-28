@@ -67,8 +67,8 @@ namespace LTP_Website
         /// </summary>
         protected void LoadPersonGridView()
         {
-            string strFirstName = Convert.ToString(txtFirstName.Text);
-            string strLastName = Convert.ToString(txtLastName.Text);
+            string strFirstName = Convert.ToString(txtFirstName.Text.Trim());
+            string strLastName = Convert.ToString(txtLastName.Text.Trim());
 
             int? nStateId = null;
             if (Convert.ToInt32(ddlState.SelectedItem.Value) != -1)
@@ -83,7 +83,7 @@ namespace LTP_Website
             DateTime? dtDob = null;
             if (!(String.IsNullOrEmpty(txtDOB.Text)))
             {
-                dtDob = Convert.ToDateTime(DateTime.Parse(txtDOB.Text).Date);
+                dtDob = Convert.ToDateTime(DateTime.Parse(txtDOB.Text.Trim()).Date);
             }
             List<DTOPerson> lstPerson = new List<DTOPerson>();
             DALMethods dalMethods = new DALMethods();
@@ -156,11 +156,11 @@ namespace LTP_Website
             if(Page.IsValid == true)
             {
                 int nPersonId = 0;
-                string strFirstName = Convert.ToString(txtAddFirstName.Text);
-                string strLastName = Convert.ToString(txtAddLastName.Text);
-                int nStateId = Convert.ToInt32(ddlAddState.SelectedItem.Value);
-                char cGender = Convert.ToChar(rblAddGender.SelectedItem.Value);
-                DateTime dtDob = Convert.ToDateTime(DateTime.Parse(txtAddDOB.Text).Date);
+                string strFirstName = Convert.ToString(txtAddFirstName.Text.Trim());
+                string strLastName = Convert.ToString(txtAddLastName.Text.Trim());
+                int nStateId = Convert.ToInt32(ddlAddState.SelectedItem.Value.Trim());
+                char cGender = Convert.ToChar(rblAddGender.SelectedItem.Value.Trim());
+                DateTime dtDob = Convert.ToDateTime(DateTime.Parse(txtAddDOB.Text.Trim()).Date);
 
                 DALMethods dalMethods = new DALMethods();
                 if (dalMethods.SavePerson(nPersonId, strFirstName, strLastName, nStateId, cGender, dtDob) == -1)
@@ -188,11 +188,11 @@ namespace LTP_Website
                     nPersonId = Convert.ToInt32(txtHiddenPersonID.Text);
                 }
 
-                string strFirstName = Convert.ToString(txtEditFirstName.Text);
-                string strLastName = Convert.ToString(txtEditLastName.Text);
-                int nStateId = Convert.ToInt32(ddlEditState.SelectedItem.Value);
-                char cGender = Convert.ToChar(rblEditGender.SelectedItem.Value);
-                DateTime dtDob = Convert.ToDateTime(DateTime.Parse(txtEditDOB.Text).Date);
+                string strFirstName = Convert.ToString(txtEditFirstName.Text.Trim());
+                string strLastName = Convert.ToString(txtEditLastName.Text.Trim());
+                int nStateId = Convert.ToInt32(ddlEditState.SelectedItem.Value.Trim());
+                char cGender = Convert.ToChar(rblEditGender.SelectedItem.Value.Trim());
+                DateTime dtDob = Convert.ToDateTime(DateTime.Parse(txtEditDOB.Text.Trim()).Date);
 
                 DALMethods dalMethods = new DALMethods();
                 if (dalMethods.SavePerson(nPersonId, strFirstName, strLastName, nStateId, cGender, dtDob) == -1)

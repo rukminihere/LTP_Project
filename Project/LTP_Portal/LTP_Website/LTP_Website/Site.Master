@@ -39,9 +39,15 @@
                         <table runat="server" id="tblHeader" style="height: 75px; width:100%;">
                             <tbody>
                                 <tr>
-                                    <td style="background-color:darkcyan; padding-left:20px;">
+                                    <td style="background-color:darkcyan; padding-left:20px; text-align:left;">
                                         <div>
                                             <asp:Label id="lblHeader" Text="Lab Test Portal" runat="server" ForeColor="White" Font-Bold="true" Font-Size="Large"
+                                                Font-Names="Arial"></asp:Label> 
+                                        </div>
+                                    </td>
+                                    <td style="background-color:darkcyan; padding-right:20px; text-align:right;">
+                                        <div>
+                                            <asp:Label id="lblUser" Text="Welcome Rukmini !" runat="server" ForeColor="White" Font-Bold="true" Font-Size="Large"
                                                 Font-Names="Arial"></asp:Label>
                                         </div>
                                     </td>
@@ -72,7 +78,7 @@
                                 <tr>
                                     <td style="background-color:darkcyan; padding-left:20px;">
                                         <div>
-                                            <asp:Label id="lblFooter" Text="@ 2018 Copyright - Rukmini Ananthanarayanan" runat="server" ForeColor="White" 
+                                            <asp:Label id="lblFooter" Text="© 2018 Copyright - Rukmini Ananthanarayanan" runat="server" ForeColor="White" 
                                                 Font-Bold="true" Font-Names="Arial" Font-Size="Small" Font-Italic="true"></asp:Label>
                                         </div>
                                     </td>

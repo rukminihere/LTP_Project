@@ -4,24 +4,24 @@
     var isError = false;
     fname = document.getElementById('txtFirstName').value;
     lname = document.getElementById('txtLastName').value;
-    namepattern = "^([a-zA-Z]+\s*)+$";
+    namepattern = "^([a-zA-Z]+\\s*)+$";
 
     // First Name - Validation
     if (fname != '') {
         if (!fname.match(namepattern)) {
             isError = true;
-            errorMessage = "First Name - Only letters and spaces allowed.Should not begin with space. \n";
+            errorMessage = "First Name - Only letters and spaces allowed. Should not begin with space. \n";
         }
     }
     // Last Name - Validation
     if (lname != '') {
         if (!lname.match(namepattern)) {
             isError = true;
-            errorMessage = errorMessage.concat("Last Name - Only letters and spaces allowed.Should not begin with space. \n");
+            errorMessage = errorMessage.concat("Last Name - Only letters and spaces allowed. Should not begin with space. \n");
 
         }
     }
-    
+   
     if (isError == true) {
         alert(errorMessage);
         return false;
@@ -35,13 +35,13 @@ function AddPersonValidate() {
     lname = document.getElementById('txtAddLastName').value;
     dob = document.getElementById('txtAddDOB').value;
     gender = document.getElementById('rblAddGender');
-    namepattern = "^([a-zA-Z]+\s*)+$";
+    namepattern = "^([a-zA-Z]+\\s*)+$";
 
     // First Name - Validation
     if (fname != '') {
         if (!fname.match(namepattern)) {
             isError = true;
-            errorMessage = errorMessage.concat("First Name - Only letters and spaces allowed.Should not begin with space. \n");
+            errorMessage = errorMessage.concat("First Name - Only letters and spaces allowed. Should not begin with space. \n");
         }
     }
     else {
@@ -52,7 +52,7 @@ function AddPersonValidate() {
     if (lname != '') {
         if (!lname.match(namepattern)) {
             isError = true;
-            errorMessage = errorMessage.concat("Last Name - Only letters and spaces allowed.Should not begin with space. \n");
+            errorMessage = errorMessage.concat("Last Name - Only letters and spaces allowed. Should not begin with space. \n");
         }
     }
     else {
@@ -91,13 +91,13 @@ function UpdatePersonValidate() {
     fname = document.getElementById('txtEditFirstName').value;
     lname = document.getElementById('txtEditLastName').value;
     dob = document.getElementById('txtEditDOB').value;
-    namepattern = "^([a-zA-Z]+\s*)+$";
+    namepattern = "^([a-zA-Z]+\\s*)+$";
 
     // First Name - Validation
     if (fname != '') {
         if (!fname.match(namepattern)) {
             isError = true;
-            errorMessage = errorMessage.concat("First Name - Only letters and spaces allowed.Should not begin with space. \n");
+            errorMessage = errorMessage.concat("First Name - Only letters and spaces allowed. Should not begin with space. \n");
         }
     }
     else {
@@ -108,7 +108,7 @@ function UpdatePersonValidate() {
     if (lname != '') {
         if (!lname.match(namepattern)) {
             isError = true;
-            errorMessage = errorMessage.concat("Last Name - Only letters and spaces allowed.Should not begin with space. \n");
+            errorMessage = errorMessage.concat("Last Name - Only letters and spaces allowed. Should not begin with space. \n");
         }
     }
     else {

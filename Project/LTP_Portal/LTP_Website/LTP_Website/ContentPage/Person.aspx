@@ -49,7 +49,7 @@
                                                         <asp:Label ID="lblFirstName" Text="First Name:" runat="server" CssClass="labelLeft"></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtFirstName" runat="server" CssClass="textLeft" ClientIDMode="Static"></asp:TextBox>
+                                                        <asp:TextBox ID="txtFirstName" runat="server" CssClass="textLeft" ClientIDMode="Static" MaxLength="50"></asp:TextBox>
                                                         <asp:RegularExpressionValidator ID="regvalFirstName" runat="server" ControlToValidate="txtFirstName" 
                                                             ValidationExpression="^([a-zA-Z]+\s*)+$" ErrorMessage="Only letters and spaces allowed.Should not begin with space."
                                                              ValidationGroup="valgrpSearch" EnableClientScript="false"></asp:RegularExpressionValidator>
@@ -63,7 +63,7 @@
                                                         <asp:Label ID="lblLastName" Text="Last Name:" runat="server" CssClass="labelLeft"></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtLastName"  runat="server" CssClass="textLeft" ClientIDMode="Static"></asp:TextBox>
+                                                        <asp:TextBox ID="txtLastName"  runat="server" CssClass="textLeft" ClientIDMode="Static" MaxLength="50"></asp:TextBox>
                                                         <asp:RegularExpressionValidator ID="regvalLastName" runat="server" ControlToValidate="txtLastName" 
                                                             ValidationExpression="^([a-zA-Z]+\s*)+$" 
                                                             ErrorMessage="Only letters and spaces allowed.Should not begin with space" ValidationGroup="valgrpSearch"
@@ -188,7 +188,7 @@
                                                         <asp:Label ID="lblAddFirstName" Text="First Name:" runat="server" CssClass="modalLabelLeft"></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtAddFirstName" runat="server" CssClass="modalTextLeft" ClientIDMode="Static"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAddFirstName" runat="server" CssClass="modalTextLeft" ClientIDMode="Static" MaxLength="50"></asp:TextBox>
                                                         <asp:RequiredFieldValidator ID="reqtxtAddFirstName" runat="server" ControlToValidate="txtAddFirstName" 
                                                             ErrorMessage="Please enter a first name." ValidationGroup="valgrpAddPerson" EnableClientScript="false"></asp:RequiredFieldValidator>
                                                         <asp:RegularExpressionValidator ID="regAddFirstName" runat="server" ControlToValidate="txtAddFirstName" 
@@ -202,7 +202,7 @@
                                                         <asp:Label ID="lblAddLastName" Text="Last Name:" runat="server" CssClass="modalLabelLeft"></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtAddLastName"  runat="server" CssClass="modalTextLeft" ClientIDMode="Static"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAddLastName"  runat="server" CssClass="modalTextLeft" ClientIDMode="Static" MaxLength="50"></asp:TextBox>
                                                         <asp:RequiredFieldValidator ID="reqtxtAddLastName" runat="server" ControlToValidate="txtAddLastName" 
                                                             ErrorMessage="Please enter a last name." ValidationGroup="valgrpAddPerson" EnableClientScript="false"></asp:RequiredFieldValidator>
                                                         <asp:RegularExpressionValidator ID="regAddLastName" runat="server" ControlToValidate="txtAddLastName"
@@ -253,7 +253,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <asp:Button ID="btnAddSave"  text="Save" CausesValidation="true" runat="server" OnClick ="btnAddSave_Click" OnClientClick="return(AddPersonValidate());" 
+                <asp:Button ID="btnAddSave" text="Add" CausesValidation="true" runat="server" OnClick ="btnAddSave_Click" OnClientClick="return(AddPersonValidate());" 
                     CssClass="modalButton" ValidationGroup="valgrpAddPerson"/>
                 <button type="button" data-dismiss="modal" class="modalButton" onclick="ClearAddUpdatePersonDetails();">Close</button>
             </div>
@@ -280,7 +280,7 @@
                                             <asp:Label ID="lblEditFirstName" Text="First Name:" runat="server" CssClass="modalLabelLeft"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtEditFirstName" runat="server" CssClass="modalTextLeft" ClientIDMode="Static"></asp:TextBox>
+                                            <asp:TextBox ID="txtEditFirstName" runat="server" CssClass="modalTextLeft" ClientIDMode="Static" MaxLength="50"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="reqtxtEditFirstName" runat="server" ControlToValidate="txtEditFirstName" ErrorMessage="Please enter a first name." 
                                                 ValidationGroup="valgrpEditPerson" EnableClientScript="false"></asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="regEditFirstName" runat="server" ControlToValidate="txtEditFirstName" ValidationExpression="^([a-zA-Z]+\s*)+$" 
@@ -293,7 +293,7 @@
                                             <asp:Label ID="lblEditLastName" Text="Last Name:" runat="server" CssClass="modalLabelLeft"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtEditLastName"  runat="server" CssClass="modalTextLeft" ClientIDMode="Static"></asp:TextBox>
+                                            <asp:TextBox ID="txtEditLastName"  runat="server" CssClass="modalTextLeft" ClientIDMode="Static" MaxLength="50"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="reqtxtEditLastName" runat="server" ControlToValidate="txtEditLastName" ErrorMessage="Please enter a last name." 
                                                 ValidationGroup="valgrpEditPerson" EnableClientScript="false"></asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="regEditLastName" runat="server" ControlToValidate="txtEditLastName" ValidationExpression="^([a-zA-Z]+\s*)+$" 
@@ -342,7 +342,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <asp:Button ID="btnEditSave" text="Save" CausesValidation="true" runat="server" OnClick="btnEditSave_Click" OnClientClick="return(UpdatePersonValidate());"
+                <asp:Button ID="btnEditSave" text="Update" CausesValidation="true" runat="server" OnClick="btnEditSave_Click" OnClientClick="return(UpdatePersonValidate());"
                     CssClass="modalButton" ValidationGroup="valgrpEditPerson"/>
                 <button type="button" data-dismiss="modal" class="modalButton" onclick="ClearAddUpdatePersonDetails();">Close</button>
             </div>
