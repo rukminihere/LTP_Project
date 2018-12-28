@@ -6,10 +6,11 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using LTP_Website.Models;
+//using LTP_Website.Models;
 
 namespace LTP_Website
 {
+    /*
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
@@ -99,4 +100,5 @@ namespace LTP_Website
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
+    */
 }

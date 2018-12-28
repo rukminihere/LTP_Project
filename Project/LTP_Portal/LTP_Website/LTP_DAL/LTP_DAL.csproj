@@ -44,6 +44,7 @@
     <Compile Include="DALMethods.cs" />
     <Compile Include="DTOPerson.cs" />
     <Compile Include="DTOStates.cs" />
+    <Compile Include="ErrorHandling.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

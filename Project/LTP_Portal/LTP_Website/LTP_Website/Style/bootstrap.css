@@ -5691,6 +5691,7 @@ body.modal-open,
 .modal-title {
   margin: 0;
   line-height: 1.428571429;
+  color:white;
 }
 
 .modal-body {

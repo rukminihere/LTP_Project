@@ -28,6 +28,7 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Path="~/Scripts/LTP_Script.js" />
             </Scripts>
         </asp:ScriptManager>
         <div>
@@ -38,11 +39,11 @@
                         <table runat="server" id="tblHeader" style="height: 75px; width:100%;">
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <br />
-                                        <asp:Label id="lblHeader" Text="Lab Test Portal" runat="server"></asp:Label>
-                                        <br />
-                                        <hr>
+                                    <td style="background-color:darkcyan; padding-left:20px;">
+                                        <div>
+                                            <asp:Label id="lblHeader" Text="Lab Test Portal" runat="server" ForeColor="White" Font-Bold="true" Font-Size="Large"
+                                                Font-Names="Arial"></asp:Label>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -56,9 +57,8 @@
                                 <tr>
                                     <td>
                                         <div style="align-content:stretch; vertical-align:top;">
-
-                                        </div>
-                                        <asp:ContentPlaceHolder ID="MainContent" runat="server" ></asp:ContentPlaceHolder>
+                                            <asp:ContentPlaceHolder ID="MainContent" runat="server" ></asp:ContentPlaceHolder>
+                                        </div>                                        
                                     </td>
                                 </tr>
                             </tbody>
@@ -67,14 +67,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <table runat="server" id="tblFooter" style="height: 75px; width:100%;" >
+                        <table runat="server" id="tblFooter" style="height: 50px; width:100%;" >
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <hr />
-                                        <br />
-                                        <asp:Label id="lblFooter" Text="Lab Test Portal Footer" runat="server"></asp:Label>
-                                        <br />
+                                    <td style="background-color:darkcyan; padding-left:20px;">
+                                        <div>
+                                            <asp:Label id="lblFooter" Text="@ 2018 Copyright - Rukmini Ananthanarayanan" runat="server" ForeColor="White" 
+                                                Font-Bold="true" Font-Names="Arial" Font-Size="Small" Font-Italic="true"></asp:Label>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

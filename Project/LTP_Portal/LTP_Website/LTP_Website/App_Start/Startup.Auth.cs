@@ -7,12 +7,12 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using LTP_Website.Models;
+//using LTP_Website.Models;
 
 namespace LTP_Website
 {
     public partial class Startup {
-
+        /*
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
         public void ConfigureAuth(IAppBuilder app)
         {
@@ -64,6 +64,6 @@ namespace LTP_Website
             //    ClientId = "",
             //    ClientSecret = ""
             //});
-        }
+        }*/
     }
 }

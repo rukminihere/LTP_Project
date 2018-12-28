@@ -1,35 +1,74 @@
 ﻿.labelLeft
 {
     font-weight: bold;
-    text-align: right;
+    text-align: left;
     padding: 5px 10px 5px 10px;
+    width:200px;
+    background-color:white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    vertical-align: middle;
 }
 .labelHeader
 {
     font-size:medium;
     font-weight: bold;
-    text-align: right;
-    padding: 10px 10px 10px 10px;
+    text-align: left;
+    padding: 10px 10px 10px 10px; 
 }
-.textboxLeft
+.textLeft
 {
-    font-weight: bold;
-    text-align: right;
     padding: 5px 10px 5px 10px;
-    width:250px;
+    width: 250px;
 }
-.radiobuttonLeft
+.buttonLeft{
+    background-color:darkcyan;
+    color:white;    
+}
+.radioLeft
 {
-   margin-right: 50px;
+   margin-right: 50px;   
 }
 .dropdownLeft
 {
-    font-weight: bold;
-    text-align: right;
+    text-align: left;
     padding: 5px 10px 5px 10px;
     width:250px;
 }
 .gridviewLayout
 {
+    margin-left: 10px;
+    width:700px;
+}
+.modalLabelLeft
+{
+    font-weight: bold;
+    text-align: left;
     padding: 5px 10px 5px 10px;
+    width:200px;
+}
+.modalTextLeft{
+    padding: 5px 10px 5px 10px;
+    vertical-align:middle;
+    width:250px;
+}
+.modalRadioLeft{
+    vertical-align:middle;
+}
+.modalDropdownLeft{
+    text-align: left;
+    padding: 5px 10px 5px 10px;
+    width:250px;
+}
+.modal-title{
+    color:white;
+    text-align: left;
+    padding: 5px 10px 5px 10px;
+    width:200px;
+    font-weight: bold;
+    font-family: Arial;
+}
+.modalButton{
+    background-color:darkcyan;
+    color:white;
 }
