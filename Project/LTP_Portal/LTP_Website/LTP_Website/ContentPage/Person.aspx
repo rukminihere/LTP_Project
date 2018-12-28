@@ -271,7 +271,7 @@
             <div class="modal-body">
                 <div class="form-group ">
                     <asp:TextBox ID="txtHiddenPersonID" runat="server" Visible="false" ></asp:TextBox>
-                    <asp:UpdatePanel ID="updpnlEditPersonalModal" runat="server">
+                    <asp:UpdatePanel ID="updpnlEditPersonalModal" runat="server">                        
                         <ContentTemplate>
                             <table>
                                 <tbody>
